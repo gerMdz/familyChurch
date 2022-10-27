@@ -67,11 +67,32 @@ class Member
      */
     private $churchExperience;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=ServicesChurch::class, inversedBy="members")
+     */
+    private $servicesUsed;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isParticipateSmallGroup;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $smallGroupName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $smallGroupGuide;
+
     public function __construct()
     {
         $this->userMedia = new ArrayCollection();
         $this->wayContacts = new ArrayCollection();
         $this->churchExperience = new ArrayCollection();
+        $this->servicesUsed = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -235,6 +256,66 @@ class Member
     public function removeChurchExperience(ChurchExperiences $churchExperience): self
     {
         $this->churchExperience->removeElement($churchExperience);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ServicesChurch>
+     */
+    public function getServicesUsed(): Collection
+    {
+        return $this->servicesUsed;
+    }
+
+    public function addServicesUsed(ServicesChurch $servicesUsed): self
+    {
+        if (!$this->servicesUsed->contains($servicesUsed)) {
+            $this->servicesUsed[] = $servicesUsed;
+        }
+
+        return $this;
+    }
+
+    public function removeServicesUsed(ServicesChurch $servicesUsed): self
+    {
+        $this->servicesUsed->removeElement($servicesUsed);
+
+        return $this;
+    }
+
+    public function isIsParticipateSmallGroup(): ?bool
+    {
+        return $this->isParticipateSmallGroup;
+    }
+
+    public function setIsParticipateSmallGroup(?bool $isParticipateSmallGroup): self
+    {
+        $this->isParticipateSmallGroup = $isParticipateSmallGroup;
+
+        return $this;
+    }
+
+    public function getSmallGroupName(): ?string
+    {
+        return $this->smallGroupName;
+    }
+
+    public function setSmallGroupName(?string $smallGroupName): self
+    {
+        $this->smallGroupName = $smallGroupName;
+
+        return $this;
+    }
+
+    public function getSmallGroupGuide(): ?string
+    {
+        return $this->smallGroupGuide;
+    }
+
+    public function setSmallGroupGuide(?string $smallGroupGuide): self
+    {
+        $this->smallGroupGuide = $smallGroupGuide;
 
         return $this;
     }
