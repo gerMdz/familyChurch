@@ -87,12 +87,18 @@ class Member
      */
     private $smallGroupGuide;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=EnjoyGroup::class)
+     */
+    private $enjoyMost;
+
     public function __construct()
     {
         $this->userMedia = new ArrayCollection();
         $this->wayContacts = new ArrayCollection();
         $this->churchExperience = new ArrayCollection();
         $this->servicesUsed = new ArrayCollection();
+        $this->enjoyMost = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -316,6 +322,30 @@ class Member
     public function setSmallGroupGuide(?string $smallGroupGuide): self
     {
         $this->smallGroupGuide = $smallGroupGuide;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EnjoyGroup>
+     */
+    public function getEnjoyMost(): Collection
+    {
+        return $this->enjoyMost;
+    }
+
+    public function addEnjoyMost(EnjoyGroup $enjoyMost): self
+    {
+        if (!$this->enjoyMost->contains($enjoyMost)) {
+            $this->enjoyMost[] = $enjoyMost;
+        }
+
+        return $this;
+    }
+
+    public function removeEnjoyMost(EnjoyGroup $enjoyMost): self
+    {
+        $this->enjoyMost->removeElement($enjoyMost);
 
         return $this;
     }
