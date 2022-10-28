@@ -95,7 +95,7 @@ class Member
     /**
      * @ORM\ManyToMany(targetEntity=AreaInterest::class)
      */
-    private $yourAreaIâ€nterest;
+    private $yourAreaIï¿½nterest;
 
     /**
      * @ORM\ManyToMany(targetEntity=Needs::class)
@@ -114,7 +114,7 @@ class Member
         $this->churchExperience = new ArrayCollection();
         $this->servicesUsed = new ArrayCollection();
         $this->enjoyMost = new ArrayCollection();
-        $this->yourAreaIâ€nterest = new ArrayCollection();
+        $this->yourAreaIï¿½nterest = new ArrayCollection();
         $this->yourNeeds = new ArrayCollection();
     }
 
@@ -370,15 +370,15 @@ class Member
     /**
      * @return Collection<int, AreaInterest>
      */
-    public function getYourAreaIâ€nterest(): Collection
+    public function getYourAreaIï¿½nterest(): Collection
     {
-        return $this->yourAreaIâ€nterest;
+        return $this->yourAreaIï¿½nterest;
     }
 
     public function addYourAreaINterest(AreaInterest $yourAreaINterest): self
     {
-        if (!$this->yourAreaIâ€nterest->contains($yourAreaINterest)) {
-            $this->yourAreaIâ€nterest[] = $yourAreaINterest;
+        if (!$this->yourAreaIï¿½nterest->contains($yourAreaINterest)) {
+            $this->yourAreaIï¿½nterest[] = $yourAreaINterest;
         }
 
         return $this;
@@ -386,7 +386,7 @@ class Member
 
     public function removeYourAreaINterest(AreaInterest $yourAreaINterest): self
     {
-        $this->yourAreaIâ€nterest->removeElement($yourAreaINterest);
+        $this->yourAreaIï¿½nterest->removeElement($yourAreaINterest);
 
         return $this;
     }
