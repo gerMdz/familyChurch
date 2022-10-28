@@ -92,6 +92,11 @@ class Member
      */
     private $enjoyMost;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=AreaInterest::class)
+     */
+    private $yourAreaIâ€nterest;
+
     public function __toString(): string
     {
         return $this->firstName . ' '. $this->getLastName();
@@ -104,6 +109,7 @@ class Member
         $this->churchExperience = new ArrayCollection();
         $this->servicesUsed = new ArrayCollection();
         $this->enjoyMost = new ArrayCollection();
+        $this->yourAreaIâ€nterest = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -351,6 +357,30 @@ class Member
     public function removeEnjoyMost(EnjoyGroup $enjoyMost): self
     {
         $this->enjoyMost->removeElement($enjoyMost);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AreaInterest>
+     */
+    public function getYourAreaIâ€nterest(): Collection
+    {
+        return $this->yourAreaIâ€nterest;
+    }
+
+    public function addYourAreaINterest(AreaInterest $yourAreaINterest): self
+    {
+        if (!$this->yourAreaIâ€nterest->contains($yourAreaINterest)) {
+            $this->yourAreaIâ€nterest[] = $yourAreaINterest;
+        }
+
+        return $this;
+    }
+
+    public function removeYourAreaINterest(AreaInterest $yourAreaINterest): self
+    {
+        $this->yourAreaIâ€nterest->removeElement($yourAreaINterest);
 
         return $this;
     }
