@@ -92,6 +92,11 @@ class Member
      */
     private $enjoyMost;
 
+    public function __toString(): string
+    {
+        return $this->firstName . ' '. $this->getLastName();
+    }
+
     public function __construct()
     {
         $this->userMedia = new ArrayCollection();
