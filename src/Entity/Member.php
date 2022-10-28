@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MemberRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -95,7 +96,7 @@ class Member
     /**
      * @ORM\ManyToMany(targetEntity=AreaInterest::class)
      */
-    private $yourAreaI�nterest;
+    private $yourAreaInterest;
 
     /**
      * @ORM\ManyToMany(targetEntity=Needs::class)
@@ -114,7 +115,7 @@ class Member
         $this->churchExperience = new ArrayCollection();
         $this->servicesUsed = new ArrayCollection();
         $this->enjoyMost = new ArrayCollection();
-        $this->yourAreaI�nterest = new ArrayCollection();
+        $this->yourAreaInterest = new ArrayCollection();
         $this->yourNeeds = new ArrayCollection();
     }
 
@@ -147,12 +148,12 @@ class Member
         return $this;
     }
 
-    public function getDateOfBirthAt(): ?\DateTimeImmutable
+    public function getDateOfBirthAt(): ?DateTimeImmutable
     {
         return $this->dateOfBirthAt;
     }
 
-    public function setDateOfBirthAt(?\DateTimeImmutable $dateOfBirthAt): self
+    public function setDateOfBirthAt(?DateTimeImmutable $dateOfBirthAt): self
     {
         $this->dateOfBirthAt = $dateOfBirthAt;
 
@@ -370,23 +371,23 @@ class Member
     /**
      * @return Collection<int, AreaInterest>
      */
-    public function getYourAreaI�nterest(): Collection
+    public function getYourAreaInterest(): Collection
     {
-        return $this->yourAreaI�nterest;
+        return $this->yourAreaInterest;
     }
 
-    public function addYourAreaINterest(AreaInterest $yourAreaINterest): self
+    public function addYourAreaInterest(AreaInterest $yourAreaInterest): self
     {
-        if (!$this->yourAreaI�nterest->contains($yourAreaINterest)) {
-            $this->yourAreaI�nterest[] = $yourAreaINterest;
+        if (!$this->yourAreaInterest->contains($yourAreaInterest)) {
+            $this->yourAreaInterest[] = $yourAreaInterest;
         }
 
         return $this;
     }
 
-    public function removeYourAreaINterest(AreaInterest $yourAreaINterest): self
+    public function removeYourAreaInterest(AreaInterest $yourAreaInterest): self
     {
-        $this->yourAreaI�nterest->removeElement($yourAreaINterest);
+        $this->yourAreaInterest->removeElement($yourAreaInterest);
 
         return $this;
     }
