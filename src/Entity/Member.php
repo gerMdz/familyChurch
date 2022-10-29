@@ -103,6 +103,36 @@ class Member
      */
     private $yourNeeds;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isServeChurch;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $whereServeChurch;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $tradeProfession;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $workExperience;
+
+    /**
+     * @ORM\Column(type="string", length=510, nullable=true)
+     */
+    private $artisticSkills;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $currentOccupation;
+
     public function __toString(): string
     {
         return $this->firstName . ' '. $this->getLastName();
@@ -412,6 +442,78 @@ class Member
     public function removeYourNeed(Needs $yourNeed): self
     {
         $this->yourNeeds->removeElement($yourNeed);
+
+        return $this;
+    }
+
+    public function isIsServeChurch(): ?bool
+    {
+        return $this->isServeChurch;
+    }
+
+    public function setIsServeChurch(?bool $isServeChurch): self
+    {
+        $this->isServeChurch = $isServeChurch;
+
+        return $this;
+    }
+
+    public function getWhereServeChurch(): ?string
+    {
+        return $this->whereServeChurch;
+    }
+
+    public function setWhereServeChurch(?string $whereServeChurch): self
+    {
+        $this->whereServeChurch = $whereServeChurch;
+
+        return $this;
+    }
+
+    public function getTradeProfession(): ?string
+    {
+        return $this->tradeProfession;
+    }
+
+    public function setTradeProfession(?string $tradeProfession): self
+    {
+        $this->tradeProfession = $tradeProfession;
+
+        return $this;
+    }
+
+    public function getWorkExperience(): ?string
+    {
+        return $this->workExperience;
+    }
+
+    public function setWorkExperience(?string $workExperience): self
+    {
+        $this->workExperience = $workExperience;
+
+        return $this;
+    }
+
+    public function getArtisticSkills(): ?string
+    {
+        return $this->artisticSkills;
+    }
+
+    public function setArtisticSkills(?string $artisticSkills): self
+    {
+        $this->artisticSkills = $artisticSkills;
+
+        return $this;
+    }
+
+    public function getCurrentOccupation(): ?string
+    {
+        return $this->currentOccupation;
+    }
+
+    public function setCurrentOccupation(?string $currentOccupation): self
+    {
+        $this->currentOccupation = $currentOccupation;
 
         return $this;
     }
