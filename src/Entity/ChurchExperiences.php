@@ -27,7 +27,7 @@ class ChurchExperiences
     /**
      * @ORM\Column(type="string", length=510, nullable=true)
      */
-    private $desccription;
+    private $description;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -61,14 +61,14 @@ class ChurchExperiences
         return $this;
     }
 
-    public function getDesccription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desccription;
+        return $this->description;
     }
 
-    public function setDesccription(?string $desccription): self
+    public function setDescription(?string $description): self
     {
-        $this->desccription = $desccription;
+        $this->description = $description;
 
         return $this;
     }

@@ -1,0 +1,30 @@
+# api/config/api_platform/churchExperiences.yaml
+App\Entity\ChurchExperiences:
+  attributes:
+    normalization_context:
+      groups: [churchExperiences_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /church_experiences
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [churchExperiences_read]
+      openapi_context:
+        summary: Lista las ChurchExperiences
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+
+  itemOperations:
+    [ ]

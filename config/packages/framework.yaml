@@ -14,6 +14,10 @@ framework:
 
     #esi: true
     #fragments: true
+    serializer:
+        enable_annotations: true
+        mapping:
+            paths: [ '%kernel.project_dir%/config/api_platform/serialization' ]
     php_errors:
         log: true
 

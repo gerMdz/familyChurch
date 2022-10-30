@@ -1,0 +1,30 @@
+# api/config/api_platform/areaInterest.yaml
+App\Entity\AreaInterest:
+  attributes:
+    normalization_context:
+      groups: [areaInterest_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /area_interest
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [areaInterest_read]
+      openapi_context:
+        summary: Lista las áreas de interés
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+
+  itemOperations:
+    [ ]

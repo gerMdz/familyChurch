@@ -1,0 +1,39 @@
+# api/config/api_platform/member.yaml
+App\Entity\Member:
+  attributes:
+    normalization_context:
+      groups: [post_read]
+  collectionOperations:
+    get_last_post:
+      method: GET
+      path: /member
+      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [member_read]
+      openapi_context:
+        summary: Lista el último post
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    slug:
+                      type: string
+    post:
+      method: POST
+      path: /member
+      deserialize: false
+      normalization_context:
+        groups: [ member_write ]
+
+  itemOperations:
+    []
+#    get:
+#      method: GET
+#      security: is_granted("post_read", object)

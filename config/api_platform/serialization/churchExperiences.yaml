@@ -1,0 +1,7 @@
+# api/config/serialization/churchExperiences.yaml
+App\Entity\ChurchExperiences:
+  attributes:
+    id:
+      groups: ['churchExperiences_read']
+    name:
+      groups: ['churchExperiences_read']

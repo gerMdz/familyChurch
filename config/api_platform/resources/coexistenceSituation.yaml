@@ -1,0 +1,30 @@
+# api/config/api_platform/coexistenceSituation.yaml
+App\Entity\CoexistenceSituation:
+  attributes:
+    normalization_context:
+      groups: [coexistenceSituation_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /coexistence_situation
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [coexistenceSituation_read]
+      openapi_context:
+        summary: Lista las posibles situaciones de vivencia familiar
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+
+  itemOperations:
+    [ ]

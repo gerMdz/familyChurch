@@ -1,0 +1,7 @@
+# api/config/serialization/areaInterest.yaml
+App\Entity\AreaInterest:
+  attributes:
+    id:
+      groups: ['areaInterest_read']
+    name:
+      groups: ['areaInterest_read']

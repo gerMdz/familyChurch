@@ -1,0 +1,7 @@
+# api/config/serialization/coexistenceSituation.yaml
+App\Entity\CoexistenceSituation:
+  attributes:
+    id:
+      groups: ['coexistenceSituation_read']
+    name:
+      groups: ['coexistenceSituation_read']
