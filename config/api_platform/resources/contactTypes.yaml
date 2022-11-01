@@ -1,0 +1,32 @@
+# api/config/api_platform/contactTypes.yaml
+App\Entity\ContactTypes:
+  attributes:
+    normalization_context:
+      groups: [contactTypes_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /contact_types
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [contactTypes_read]
+      openapi_context:
+        summary: Lista tipos de contacto
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    typeInput:
+                      type: string
+
+  itemOperations:
+    [ ]
