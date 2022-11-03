@@ -1,0 +1,34 @@
+# api/config/api_platform/relationalSituation.yaml
+App\Entity\RelationalSituation:
+  attributes:
+    normalization_context:
+      groups: [relationalSituation_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /relational_situation
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [relationalSituation_read]
+      openapi_context:
+        summary: Lista las posibles situaciones relacionales
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    identifier:
+                      type: string
+                    description:
+                      type: string
+
+  itemOperations:
+    [ ]
