@@ -2,6 +2,6 @@
 App\Entity\CoexistenceSituation:
   attributes:
     id:
-      groups: ['coexistenceSituation_read']
+      groups: ['coexistenceSituation_read', 'familyMember_read']
     name:
-      groups: ['coexistenceSituation_read']
+      groups: ['coexistenceSituation_read', 'familyMember_read']

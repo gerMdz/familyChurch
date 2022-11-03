@@ -1,0 +1,48 @@
+# api/config/api_platform/familyMember.yaml
+App\Entity\FamilyMember:
+  attributes:
+    normalization_context:
+      groups: [familyMember_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /family_member
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [familyMember_read]
+      openapi_context:
+        summary: Lista los miembros posibles de una familia
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    isChildren:
+                      type: boolean
+                    numberChildren:
+                      type: number
+                    isChildrenAttendChurch:
+                      type: boolean
+
+  itemOperations:
+    [ ]
+
+  properties:
+    relationalSituation:
+      subresource:
+        resourceClass: App\Entity\RelationalSituation
+        collection: true
+        maxDepth: 1
+    coexistenceSituation:
+      subresource:
+        resourceClass: App\Entity\CoexistenceSituation
+        collection: true
+        maxDepth: 1

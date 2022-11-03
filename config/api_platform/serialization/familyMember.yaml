@@ -1,0 +1,15 @@
+# api/config/serialization/familyMember.yaml
+App\Entity\FamilyMember:
+  attributes:
+    id:
+      groups: ['familyMember_read']
+    relationalSituation:
+      groups: ['familyMember_read']
+    coexistenceSituation:
+      groups: ['familyMember_read']
+    isChildren:
+      groups: ['familyMember_read']
+    numberChildren:
+      groups: ['familyMember_read']
+    isChildrenAttendChurch:
+      groups: ['familyMember_read']
