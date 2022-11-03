@@ -1,0 +1,7 @@
+# api/config/serialization/enjoyGroup.yaml
+App\Entity\EnjoyGroup:
+  attributes:
+    id:
+      groups: ['enjoyGroup_read']
+    name:
+      groups: ['enjoyGroup_read']

@@ -1,0 +1,30 @@
+# api/config/api_platform/enjoyGroup.yaml
+App\Entity\EnjoyGroup:
+  attributes:
+    normalization_context:
+      groups: [enjoyGroup_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /enjoy_group
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [enjoyGroup_read]
+      openapi_context:
+        summary: Lista qué disfrutás del grupo pequeño
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+
+  itemOperations:
+    [ ]
