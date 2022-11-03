@@ -1,0 +1,7 @@
+# api/config/serialization/needs.yaml
+App\Entity\Needs:
+  attributes:
+    id:
+      groups: ['needs_read']
+    name:
+      groups: ['needs_read']

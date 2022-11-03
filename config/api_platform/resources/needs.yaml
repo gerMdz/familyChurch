@@ -1,0 +1,30 @@
+# api/config/api_platform/needs.yaml
+App\Entity\Needs:
+  attributes:
+    normalization_context:
+      groups: [needs_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /needs
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [needs_read]
+      openapi_context:
+        summary: Lista las necesidades personales
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+
+  itemOperations:
+    [ ]
