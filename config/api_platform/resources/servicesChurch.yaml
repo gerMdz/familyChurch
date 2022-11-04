@@ -1,0 +1,32 @@
+# api/config/api_platform/servicesChurch.yaml
+App\Entity\ServicesChurch:
+  attributes:
+    normalization_context:
+      groups: [servicesChurch_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /services_church
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [servicesChurch_read]
+      openapi_context:
+        summary: Lista los servicios de los que dispone la iglesia
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    identifier:
+                      type: string
+
+  itemOperations:
+    [ ]

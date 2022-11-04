@@ -1,0 +1,9 @@
+# api/config/serialization/servicesChurch.yaml
+App\Entity\ServicesChurch:
+  attributes:
+    id:
+      groups: ['servicesChurch_read']
+    name:
+      groups: ['servicesChurch_read']
+    identifier:
+      groups: ['servicesChurch_read']
