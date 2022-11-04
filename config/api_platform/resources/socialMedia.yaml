@@ -1,0 +1,34 @@
+# api/config/api_platform/socialMedia.yaml
+App\Entity\SocialMedia:
+  attributes:
+    normalization_context:
+      groups: [socialMedia_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /social_media
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [socialMedia_read]
+      openapi_context:
+        summary: Lista las posible redes sociales
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    identifier:
+                      type: string
+                    webSite:
+                      type: string
+
+  itemOperations:
+    [ ]

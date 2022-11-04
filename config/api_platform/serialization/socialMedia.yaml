@@ -1,0 +1,9 @@
+# api/config/serialization/socialMedia.yaml
+App\Entity\SocialMedia:
+  attributes:
+    id:
+      groups: ['socialMedia_read']
+    name:
+      groups: ['socialMedia_read']
+    identifier:
+      groups: ['socialMedia_read']
