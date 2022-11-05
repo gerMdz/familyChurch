@@ -17,7 +17,7 @@ require('bootstrap/dist/js/bootstrap.bundle.min');
 
 const myCarouselElement = document.querySelector('#carouselMiAlameda')
 const carousel = new bootstrap.Carousel(myCarouselElement, {
-    interval: 10000,
+    interval: 1000,
     wrap: true,
 })
 
