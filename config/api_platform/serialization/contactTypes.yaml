@@ -1,0 +1,9 @@
+# api/config/serialization/contactTypes.yaml
+App\Entity\ContactTypes:
+  attributes:
+    id:
+      groups: ['contactTypes_read']
+    name:
+      groups: ['contactTypes_read']
+    typeInput:
+      groups: ['contactTypes_read']
