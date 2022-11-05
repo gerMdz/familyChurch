@@ -27,4 +27,5 @@ App\Entity\EnjoyGroup:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET

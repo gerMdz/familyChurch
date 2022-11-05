@@ -29,4 +29,5 @@ App\Entity\ContactTypes:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET

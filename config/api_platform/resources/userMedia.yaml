@@ -31,7 +31,8 @@ App\Entity\UserMedia:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET
 
   properties:
     media:

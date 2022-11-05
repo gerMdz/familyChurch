@@ -29,4 +29,5 @@ App\Entity\ServicesChurch:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET

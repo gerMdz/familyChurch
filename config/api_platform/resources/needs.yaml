@@ -27,4 +27,5 @@ App\Entity\Needs:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET

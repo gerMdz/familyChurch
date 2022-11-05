@@ -31,4 +31,5 @@ App\Entity\RelationalSituation:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET

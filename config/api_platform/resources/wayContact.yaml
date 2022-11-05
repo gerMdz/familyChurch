@@ -29,7 +29,8 @@ App\Entity\WayContact:
                       type: string
 
   itemOperations:
-    [ ]
+    get:
+      method: GET
 
   properties:
     typeContact:

@@ -33,7 +33,8 @@ App\Entity\FamilyMember:
                       type: boolean
 
   itemOperations:
-    [ ]
+    get:
+      method: GET
 
   properties:
     relationalSituation:
