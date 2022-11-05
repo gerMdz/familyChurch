@@ -6,6 +6,8 @@ use App\Repository\FamilyMemberRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity(repositoryClass=FamilyMemberRepository::class)
@@ -13,9 +15,12 @@ use Doctrine\ORM\Mapping as ORM;
 class FamilyMember
 {
     /**
+     * @var UuidInterface
+     *
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
     private $id;
 
@@ -50,7 +55,12 @@ class FamilyMember
         $this->coexistenceSituation = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function __toString()
+    {
+     return $this->id->toString();
+    }
+
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

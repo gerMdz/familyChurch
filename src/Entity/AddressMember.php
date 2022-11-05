@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\AddressMemberRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity(repositoryClass=AddressMemberRepository::class)
@@ -11,9 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class AddressMember
 {
     /**
+     * @var UuidInterface
+     *
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
     private $id;
 
@@ -77,7 +82,12 @@ class AddressMember
      */
     private $memberChurch;
 
-    public function getId(): ?int
+    public function __toString()
+    {
+     return $this->street;
+    }
+
+    public function getId(): ?UuidInterface
     {
         return $this->id;
     }

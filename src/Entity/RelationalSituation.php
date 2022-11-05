@@ -30,11 +30,6 @@ class RelationalSituation
     private $identifier;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
      * @ORM\ManyToMany(targetEntity=FamilyMember::class, mappedBy="relationalSituation")
      */
     private $familyMembers;
@@ -69,18 +64,6 @@ class RelationalSituation
     public function setIdentifier(?string $identifier): self
     {
         $this->identifier = $identifier;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
 
         return $this;
     }

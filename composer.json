@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/core": "^2.7",
@@ -15,6 +15,7 @@
         "nelmio/cors-bundle": "^2.2",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.13",
+        "ramsey/uuid-doctrine": "^1.8",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
@@ -82,6 +83,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/maker-bundle": "^1.43"
     }
 }
