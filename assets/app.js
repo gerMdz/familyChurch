@@ -7,6 +7,17 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min";
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
+
+require('bootstrap/dist/js/bootstrap.bundle.min');
+// import bootstrap from "bootstrap";
+
+const myCarouselElement = document.querySelector('#carouselMiAlameda')
+const carousel = new bootstrap.Carousel(myCarouselElement, {
+    interval: 10000,
+    wrap: true,
+})
+
