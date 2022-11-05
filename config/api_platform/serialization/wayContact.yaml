@@ -1,0 +1,9 @@
+# api/config/serialization/wayContact.yaml
+App\Entity\WayContact:
+  attributes:
+    id:
+      groups: ['wayContact_read']
+    valueContact:
+      groups: ['wayContact_read']
+    typeContact:
+      groups: ['wayContact_read']

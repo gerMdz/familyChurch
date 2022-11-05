@@ -1,0 +1,39 @@
+# api/config/api_platform/wayContact.yaml
+App\Entity\WayContact:
+  attributes:
+    normalization_context:
+      groups: [wayContact_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /way_contact
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [wayContact_read]
+      openapi_context:
+        summary: Lista los posibles tipos de contacto
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    valueContact:
+                      type: string
+                    typeContact:
+                      type: string
+
+  itemOperations:
+    [ ]
+
+  properties:
+    typeContact:
+      subresource:
+        resourceClass: App\Entity\ContactType
+        collection: true
+        maxDepth: 1
