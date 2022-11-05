@@ -1,0 +1,46 @@
+# api/config/api_platform/userMedia.yaml
+App\Entity\UserMedia:
+  attributes:
+    normalization_context:
+      groups: [userMedia_read]
+  collectionOperations:
+    get:
+      method: GET
+      path: /user_media
+#      controller: App\Action\Post\LastPost
+      deserialize: false
+      normalization_context:
+        groups: [userMedia_read]
+      openapi_context:
+        summary: Lista los posibles datos de cada red
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    nameUser:
+                      type: string
+                    media:
+                      type: string
+                    netMedia:
+                      type: string
+
+  itemOperations:
+    [ ]
+
+  properties:
+    media:
+      subresource:
+        resourceClass: App\Entity\SocialMedia
+        collection: true
+        maxDepth: 1
+    netMedia:
+      subresource:
+        resourceClass: App\Entity\SocialMedia
+        collection: true
+        maxDepth: 1

@@ -1,0 +1,11 @@
+# api/config/serialization/userMedia.yaml
+App\Entity\SocialMedia:
+  attributes:
+    id:
+      groups: ['userMedia_read']
+    nameUser:
+      groups: ['userMedia_read']
+    media:
+      groups: ['userMedia_read']
+    netMedia:
+      groups: ['userMedia_read']
