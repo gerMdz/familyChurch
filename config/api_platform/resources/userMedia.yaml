@@ -29,6 +29,8 @@ App\Entity\UserMedia:
                       type: string
                     netMedia:
                       type: string
+    post:
+      method: POST
 
   itemOperations:
     get:
@@ -36,11 +38,6 @@ App\Entity\UserMedia:
 
   properties:
     media:
-      subresource:
-        resourceClass: App\Entity\SocialMedia
-        collection: true
-        maxDepth: 1
-    netMedia:
       subresource:
         resourceClass: App\Entity\SocialMedia
         collection: true

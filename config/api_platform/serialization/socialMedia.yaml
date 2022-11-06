@@ -2,8 +2,8 @@
 App\Entity\SocialMedia:
   attributes:
     id:
-      groups: ['socialMedia_read']
+      groups: ['socialMedia_read', 'userMedia_read']
     name:
-      groups: ['socialMedia_read']
+      groups: ['socialMedia_read', 'userMedia_read']
     identifier:
-      groups: ['socialMedia_read']
+      groups: ['socialMedia_read', 'userMedia_read']

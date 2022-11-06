@@ -28,12 +28,6 @@ class UserMedia
     private $media;
 
     /**
-     * @ORM\ManyToOne(targetEntity=SocialMedia::class, inversedBy="userMedia")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $netMedia;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Member::class, inversedBy="userMedia")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -64,18 +58,6 @@ class UserMedia
     public function setMedia(?SocialMedia $media): self
     {
         $this->media = $media;
-
-        return $this;
-    }
-
-    public function getNetMedia(): ?SocialMedia
-    {
-        return $this->netMedia;
-    }
-
-    public function setNetMedia(?SocialMedia $netMedia): self
-    {
-        $this->netMedia = $netMedia;
 
         return $this;
     }
