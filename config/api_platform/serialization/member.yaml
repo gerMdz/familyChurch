@@ -2,6 +2,6 @@
 App\Entity\Member:
   attributes:
     firstName:
-      groups: ['read', 'write']
+      groups: ['member_write', 'member_read']
     lastName:
-      groups: ['read', 'write']
+      groups: ['member_write', 'member_read']
