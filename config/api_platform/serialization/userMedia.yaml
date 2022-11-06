@@ -7,5 +7,3 @@ App\Entity\SocialMedia:
       groups: ['userMedia_read']
     media:
       groups: ['userMedia_read']
-    netMedia:
-      groups: ['userMedia_read']

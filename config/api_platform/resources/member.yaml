@@ -26,12 +26,19 @@ App\Entity\Member:
                     lastName:
                       type: string
     post:
-      method: POST
+#      method: POST
 #      security: is_granted("CATEGORY_CREATE")
-      denormalization_context:
-        groups: ['member_write']
+#      denormalization_context:
+#        groups: ['member_write']
 
   itemOperations:
     get:
       method: GET
       security: is_granted("member_read", object)
+
+  properties:
+    userMedia:
+      subresource:
+        resourceClass: App\Entity\SocialMedia
+        collection: true
+        maxDepth: 1
