@@ -3,8 +3,6 @@ App\Entity\Member:
   attributes:
     normalization_context:
       groups: [member_read]
-    denormalization_context:
-      groups: [member_write]
   collectionOperations:
     get_last_post:
       method: GET
@@ -23,15 +21,15 @@ App\Entity\Member:
                 schema:
                   type: object
                   properties:
-                    title:
+                    firstName:
                       type: string
-                    slug:
+                    lastName:
                       type: string
     post:
       method: POST
 #      security: is_granted("CATEGORY_CREATE")
       denormalization_context:
-        groups: [member_read]
+        groups: ['member_write']
 
   itemOperations:
     get:
