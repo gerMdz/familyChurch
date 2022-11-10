@@ -42,7 +42,7 @@ class Member
     private $dateOfBirthAt;
 
     /**
-     * @ORM\Column(type="string", length=5, nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $sex;
 

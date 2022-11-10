@@ -5,7 +5,7 @@ App\Entity\RelationalSituation:
       groups: ['relationalSituation_read']
     name:
       groups: ['relationalSituation_read', 'familyMember_read']
-    identifier:
-      groups: ['relationalSituation_read']
-    description:
-      groups: ['relationalSituation_read']
+#    identifier:
+#      groups: ['relationalSituation_read']
+#    description:
+#      groups: ['relationalSituation_read']

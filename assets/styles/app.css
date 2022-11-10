@@ -1,5 +1,11 @@
-/*body {*/
-/*    background-color: lightgray;*/
-/*}*/
-
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500&display=swap');
+
+body {
+    background: #9381FF url("/public/image/fondo.png") no-repeat center;
+    background-size: cover;
+    font-family: 'Domine', serif;
+}
+
+
+
