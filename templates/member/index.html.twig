@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member index{% endblock %}
+
+{% block body %}
+    <h1>Member index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LastName</th>
+                <th>FirstName</th>
+                <th>DateOfBirthAt</th>
+                <th>Sex</th>
+                <th>LongAgo</th>
+                <th>IsParticipateSmallGroup</th>
+                <th>SmallGroupName</th>
+                <th>SmallGroupGuide</th>
+                <th>IsServeChurch</th>
+                <th>WhereServeChurch</th>
+                <th>TradeProfession</th>
+                <th>WorkExperience</th>
+                <th>ArtisticSkills</th>
+                <th>CurrentOccupation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.lastName }}</td>
+                <td>{{ member.firstName }}</td>
+                <td>{{ member.dateOfBirthAt ? member.dateOfBirthAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ member.sex }}</td>
+                <td>{{ member.longAgo }}</td>
+                <td>{{ member.isParticipateSmallGroup ? 'Yes' : 'No' }}</td>
+                <td>{{ member.smallGroupName }}</td>
+                <td>{{ member.smallGroupGuide }}</td>
+                <td>{{ member.isServeChurch ? 'Yes' : 'No' }}</td>
+                <td>{{ member.whereServeChurch }}</td>
+                <td>{{ member.tradeProfession }}</td>
+                <td>{{ member.workExperience }}</td>
+                <td>{{ member.artisticSkills }}</td>
+                <td>{{ member.currentOccupation }}</td>
+                <td>
+                    <a href="{{ path('app_member_show', {'id': member.id}) }}">show</a>
+                    <a href="{{ path('app_member_edit', {'id': member.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_member_new') }}">Create new</a>
+{% endblock %}

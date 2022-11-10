@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}miAlameda{% endblock %}
+{% block body %}
+    <div id="app"></div>
+    {{ include('member/_form.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('member') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('member') }}
+{% endblock %}

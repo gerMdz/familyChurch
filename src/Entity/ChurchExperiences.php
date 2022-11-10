@@ -39,6 +39,11 @@ class ChurchExperiences
      */
     private $members;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->members = new ArrayCollection();

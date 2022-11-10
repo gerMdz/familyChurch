@@ -1,6 +1,8 @@
 # api/config/serialization/Member.yaml
 App\Entity\Member:
   attributes:
+    id:
+      groups: ['member_read']
     firstName:
       groups: ['member_write', 'member_read']
     lastName:
