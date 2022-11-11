@@ -7,5 +7,5 @@ import axios from 'axios';
  * @return {Promise}
  */
 export function saveMember(data) {
-    return axios.post('/api/members', data);
+    return axios.post('https://127.0.0.1/api/members', data);
 }
