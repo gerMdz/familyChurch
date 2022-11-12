@@ -164,7 +164,7 @@ export default {
         // await clearCart();
 
         // window.location = `/confirmation/${response.data.id}`;
-         window.location = `/member/${response.data.id}`;
+         window.location = `https://docs.igle.ar/member/${response.data.id}`;
 
       } catch (error) {
         const {response} = error;

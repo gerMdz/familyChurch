@@ -7,5 +7,5 @@ import axios from 'axios';
  * @return {Promise}
  */
 export function saveMember(data) {
-    return axios.post('https://docs.igle.ar/api/members', data);
+    return axios.post('/api/members', data);
 }

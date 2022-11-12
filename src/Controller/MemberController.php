@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MemberController extends AbstractController
 {
     /**
-     * @Route("/", name="app_member_index", methods={"GET"})
+     * @Route("/list", name="app_member_index", methods={"GET"})
      */
     public function index(MemberRepository $memberRepository): Response
     {
