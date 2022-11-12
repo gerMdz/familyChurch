@@ -4,34 +4,35 @@ App\Entity\Member:
     normalization_context:
       groups: [member_read]
   collectionOperations:
-    get_last_post:
-      method: GET
-      path: /member
-      controller: App\Action\Post\LastPost
-      deserialize: false
-      normalization_context:
-        groups: [member_read]
-      openapi_context:
-        summary: Lista miembros de la iglesia
-        responses:
-          200:
-            description: OK
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    firstName:
-                      type: string
-                    lastName:
-                      type: string
+#    get:
+#      method: GET
+#      path: /member
+##      controller: App\Action\Post\LastPost
+#      deserialize: false
+#      normalization_context:
+#        groups: [member_read]
+#      openapi_context:
+#        summary: Lista miembros de la iglesia
+#        responses:
+#          200:
+#            description: OK
+#            content:
+#              application/json:
+#                schema:
+#                  type: object
+#                  properties:
+#                    id:
+#                      type: string
+#                    firstName:
+#                      type: string
+#                    lastName:
+#                      type: string
     post:
-#      method: POST
+      method: POST
+      path: /members
 #      security: is_granted("CATEGORY_CREATE")
-#      denormalization_context:
-#        groups: ['member_write']
+      denormalization_context:
+        groups: ['member_read']
 
   itemOperations:
     get:

@@ -16,6 +16,14 @@ security:
 
         api:
             pattern: ^/api/
+            security: false
+        members:
+            pattern: ^/api/members
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
 
 
             # activate different ways to authenticate
