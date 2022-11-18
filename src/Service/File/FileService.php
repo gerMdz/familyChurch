@@ -4,9 +4,12 @@ namespace App\Service\File;
 
 
 
+
 use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
+
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -26,6 +29,9 @@ class FileService
         $this->mediaPath = $mediaPath;
     }
 
+    /**
+     * @throws FilesystemException
+     */
     public function uploadFile(UploadedFile $file, string $prefix, string $visibility): string
     {
         $fileName = \sprintf('%s/%s.%s', $prefix, \sha1(\uniqid()), $file->guessExtension());
@@ -33,7 +39,7 @@ class FileService
         $this->defaultStorage->writeStream(
             $fileName,
             \fopen($file->getPathname(), 'r'),
-            ['visibility' => $visibility]
+            compact('visibility')
         );
 
         return $fileName;

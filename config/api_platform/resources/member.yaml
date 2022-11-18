@@ -39,6 +39,25 @@ App\Entity\Member:
       method: GET
       security: is_granted("member_read", object)
 
+    upload_file:
+      method: POST
+      path: /member/{id}/file
+      controller: App\Action\Member\UploadFileService
+      deserializer: false
+      openapi_context:
+        summary: Subir un archivo a un miembro de la iglesia
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  file:
+                    type: string
+                    format: binary
+
+
+
   properties:
     userMedia:
       subresource:

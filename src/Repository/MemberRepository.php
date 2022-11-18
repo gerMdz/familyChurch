@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Member;
-use App\Exception\MemberNotFoundException;
+use App\Exception\Member\MemberNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -40,9 +40,9 @@ class MemberRepository extends ServiceEntityRepository
         }
     }
 
-    public function findOneByIdOrFail(string $id): ?Member
+    public function findOneByIdOrFail(string $id): Member
     {
-        if (null === $member = $this->find($id)) {
+        if ($member = $this->find($id) === null) {
             throw MemberNotFoundException::fromId($id);
         }
 
@@ -51,7 +51,7 @@ class MemberRepository extends ServiceEntityRepository
 
     public function findOneByFilePathOrFail(string $filePath): Member
     {
-        if (null === $member = $this->findOneBy(['filePath' => $filePath])) {
+        if ($member = $this->findOneBy(compact('filePath')) === null) {
             throw MemberNotFoundException::fromFilePath($filePath);
         }
 
