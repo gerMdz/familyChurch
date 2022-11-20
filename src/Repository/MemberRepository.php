@@ -42,7 +42,7 @@ class MemberRepository extends ServiceEntityRepository
 
     public function findOneByIdOrFail(string $id): Member
     {
-        if ($member = $this->find($id) === null) {
+        if (null === $member = $this->find($id) ) {
             throw MemberNotFoundException::fromId($id);
         }
 
@@ -51,12 +51,14 @@ class MemberRepository extends ServiceEntityRepository
 
     public function findOneByFilePathOrFail(string $filePath): Member
     {
-        if ($member = $this->findOneBy(compact('filePath')) === null) {
+        if (null === $member = $this->findOneBy(compact('filePath'))) {
             throw MemberNotFoundException::fromFilePath($filePath);
         }
 
         return $member;
     }
+
+
 
 //    /**
 //     * @return Member[] Returns an array of Member objects

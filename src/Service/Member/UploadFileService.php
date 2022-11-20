@@ -5,41 +5,59 @@ namespace App\Service\Member;
 use App\Entity\Member;
 use App\Repository\MemberRepository;
 use App\Service\File\FileService;
-use League\Flysystem\AdapterInterface;
-use League\Flysystem\FilesystemAdapter;
-use League\Flysystem\FilesystemException;
-use League\Flysystem\Visibility;
+use App\Service\File\UploadService;
+use Aws\Result;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
 class UploadFileService
 {
-    private FileService $fileService;
+
+    private UploadService $uploadService;
     private MemberRepository $memberRepository;
 
+
     /**
-     * @param FileService $fileService
+     * @param UploadService $uploadService
      * @param MemberRepository $memberRepository
      */
-    public function __construct(FileService $fileService, MemberRepository $memberRepository)
+    public function __construct(UploadService $uploadService, MemberRepository $memberRepository)
     {
-        $this->fileService = $fileService;
+        $this->uploadService = $uploadService;
         $this->memberRepository = $memberRepository;
     }
 
-    /**
-     * @param Request $request
-     * @param string $id
-     * @return Member
-     * @throws FilesystemException
-     */
-    public function uploadFile(Request $request, string $id): Member
+
+    public function uploadFile(Request $request,$id): Member
     {
+
         $member = $this->memberRepository->findOneByIdOrFail($id);
-        $file = $this->fileService->validateFile($request, FileService::MEMBER_INPUT_NAME);
-        $this->fileService->deleteFile($member->getFilePath());
 
-        $filName = $this->fileService->uploadFile($file, FileService::MEMBER_INPUT_NAME, Visibility::PRIVATE);
+        $files = $request->files;
+        $foto = $files->get('file');
+        $fileName = Uuid::uuid4()->toString()."-".$foto->getClientOriginalName();
+        $destino = 'image/photos';
+        $foto->move($destino, $fileName);
+        $path = $destino.'/'.$fileName;
 
+        $result = $this->uploadService->subirImagen($fileName, $path);
+
+        if ($result['@metadata']['statusCode'] == 200) {
+            $pathUrl = $result['@metadata']['effectiveUri'];
+        } else {
+            return json_decode($result);
+
+        }
+        unlink($path);
+
+        $member->setFilePath($pathUrl);
+        $this->memberRepository->add($member, true);
+
+        return $member;
 
     }
+
+
 }

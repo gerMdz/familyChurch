@@ -7,6 +7,4 @@ flysystem:
                 client: 'app.images.s3'
                 bucket: '%env(resolve:BUCKET)%'
                 prefix: '%env(resolve:PREFIX)%'
-#                options: ''
-#                streamReads: ''
 
