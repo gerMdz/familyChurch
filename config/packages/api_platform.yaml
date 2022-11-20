@@ -1,12 +1,21 @@
 api_platform:
   mapping:
-    paths: [ '%kernel.project_dir%/config/api_platform/resources' ]
+    paths:
+      - '%kernel.project_dir%/config/api_platform/resources'
+
   patch_formats:
-    json: [ 'application/merge-patch+json' ]
+    json: ['application/merge-patch+json', 'application\/x-www-form-urlencoded']
+#  multipart:
+    multipart: ['multipart/form-data']
+
   swagger:
-    versions: [ 3 ]
-  enable_swagger_ui: true
+    versions: [3]
+#    api_keys:
+#      apiKey:
+#        name: Authorization
+#        type: header
+  enable_swagger_ui: false
   enable_re_doc: true
-  title: API
+  title: Symfony API Platform
   version: 1.0
   show_webby: false

@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    uploads_base_url: 'https://s3.amazonaws.com/%env(S3_BUCKET_NAME)%'
 
 services:
     # default configuration for services in *this* file
@@ -22,3 +23,25 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Action\:
+        resource: '../src/Action'
+        tags: [ 'controller.service_arguments']
+
+    App\Service\File\UploadService:
+        arguments:
+            $key: '%env(S3_KEY)%'
+            $secret: '%env(S3_SECRET)%'
+            $region: '%env(S3_REGION)%'
+            $bucketName: '%env(S3_BUCKET_NAME)%'
+            $bucketFolder: '%env(S3_BUCKET_FOLDER)%'
+#            $acl: '%env(AWS_S3_ACL)%'
+    Aws\S3\S3Client:
+        arguments:
+            -
+              version: '%env(S3_VERSION)%'
+              region: '%env(S3_REGION)%'
+              credentials:
+                  key: '%env(S3_KEY)%'
+                  secret: '%env(S3_SECRET)%'
+

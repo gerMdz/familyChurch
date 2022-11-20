@@ -138,6 +138,16 @@ class Member
      */
     private $currentOccupation;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $familyGroup;
+
+    /**
+     * @ORM\Column(type="string", length=510, nullable=true)
+     */
+    private $filePath;
+
     public function __toString(): string
     {
         return $this->firstName . ' '. $this->getLastName();
@@ -519,6 +529,30 @@ class Member
     public function setCurrentOccupation(?string $currentOccupation): self
     {
         $this->currentOccupation = $currentOccupation;
+
+        return $this;
+    }
+
+    public function getFamilyGroup(): ?string
+    {
+        return $this->familyGroup;
+    }
+
+    public function setFamilyGroup(?string $familyGroup): self
+    {
+        $this->familyGroup = $familyGroup;
+
+        return $this;
+    }
+
+    public function getFilePath(): ?string
+    {
+        return $this->filePath;
+    }
+
+    public function setFilePath(?string $filePath): self
+    {
+        $this->filePath = $filePath;
 
         return $this;
     }

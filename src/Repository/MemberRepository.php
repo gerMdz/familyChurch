@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Member;
+use App\Exception\Member\MemberNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -38,6 +39,26 @@ class MemberRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function findOneByIdOrFail(string $id): Member
+    {
+        if (null === $member = $this->find($id) ) {
+            throw MemberNotFoundException::fromId($id);
+        }
+
+        return $member;
+    }
+
+    public function findOneByFilePathOrFail(string $filePath): Member
+    {
+        if (null === $member = $this->findOneBy(compact('filePath'))) {
+            throw MemberNotFoundException::fromFilePath($filePath);
+        }
+
+        return $member;
+    }
+
+
 
 //    /**
 //     * @return Member[] Returns an array of Member objects

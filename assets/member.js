@@ -1,4 +1,5 @@
-import Vue from 'vue';
+// import Vue from 'vue';
+import * as Vue from 'vue'
 import App from '@/pages/Member';
 
 new Vue({

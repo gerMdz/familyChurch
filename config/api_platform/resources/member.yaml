@@ -34,10 +34,31 @@ App\Entity\Member:
       denormalization_context:
         groups: ['member_read']
 
+    upload_file:
+      method: POST
+      path: /member/{id}/upload_file
+      controller: App\Action\Member\UploadFIle
+      deserialize: false
+      openapi_context:
+        summary: Upload a file attached to a movement
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  file:
+                    type: string
+                    format: binary
+
   itemOperations:
     get:
       method: GET
       security: is_granted("member_read", object)
+
+
+
+
 
   properties:
     userMedia:
