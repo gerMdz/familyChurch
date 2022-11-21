@@ -30,9 +30,7 @@ App\Entity\Member:
     post:
       method: POST
       path: /members
-#      security: is_granted("CATEGORY_CREATE")
-      denormalization_context:
-        groups: ['member_read']
+
 
     upload_file:
       method: POST
@@ -54,7 +52,12 @@ App\Entity\Member:
   itemOperations:
     get:
       method: GET
-      security: is_granted("member_read", object)
+#      security: is_granted("member_read", object)
+    put:
+      method: PUT
+#      security: is_granted("USER_UPDATE", object)
+      denormalization_context:
+#        groups: [ member_update ]
 
 
 

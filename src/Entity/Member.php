@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
 use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=MemberRepository::class)
@@ -23,16 +24,19 @@ class Member
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class=UuidGenerator::class)
+     * @Groups({"main"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({"main"})
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Groups({"main"})
      */
     private $firstName;
 

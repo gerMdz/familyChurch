@@ -4,6 +4,7 @@ namespace App\Action\Member;
 
 use App\Entity\Member;
 use App\Service\Member\UploadFileService;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class UploadFIle
