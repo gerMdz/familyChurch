@@ -11,7 +11,7 @@
         "regenerator-runtime": "^0.13.9",
         "vue": "^3.0",
         "vue-loader": "^17.0.1",
-        "webpack": "^5.74.0",
+        "webpack": "^5.97.1",
         "webpack-cli": "^4.10.0",
         "webpack-notifier": "^1.15.0"
     },
