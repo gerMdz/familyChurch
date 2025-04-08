@@ -9,7 +9,7 @@
         "core-js": "^3.23.0",
         "file-loader": "^6.0.0",
         "regenerator-runtime": "^0.13.9",
-        "vue": "^3.3",
+        "vue": "^3.4",
         "vue-loader": "^17.0.1",
         "webpack": "^5.97.1",
         "webpack-cli": "^4.10.0",
@@ -26,7 +26,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2.0",
         "axios": "^1.8.2",
-        "bootstrap": "^5.3.4",
+        "bootstrap": "^5.3.5",
         "bootstrap-vue": "^2.23.1",
         "jquery": "^3.6.1",
         "popper.js": "^1.16.1",
